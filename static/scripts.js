@@ -40,5 +40,5 @@ function getValidation() {
 	// if validated
 	//	return true;
 	// else
-	//	return false;
+	return false;
 }
