@@ -35,3 +35,10 @@ function submitCredentials() {
 
 
 // Swipe ID Page: swipe_id.html
+function getValidation() {
+	// Make request to server
+	// if validated
+	//	return true;
+	// else
+	//	return false;
+}

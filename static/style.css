@@ -23,6 +23,7 @@ p {
 
 ol {
 	text-align: left;
+	margin-bottom: 3px;
 }
 
 .title {
@@ -32,6 +33,11 @@ ol {
 	background-color: #808080;
 	
 	margin: 0 auto;
+}
+
+.areaContent {
+	margin-left: 2px;
+	margin-right: 2px;
 }
 
 /* Login Page: login.html */
@@ -45,11 +51,6 @@ ol {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
-}
-
-.loginContent {
-	margin-left: 2px;
-	margin-right: 2px;
 }
 
 .submitButton {
@@ -85,6 +86,13 @@ input[type=password] {
 }
 
 /* Access Denied Page: access_denied.html */
+
+.accessButton {
+	text-transform: uppercase;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
 
 /* Error Page: error.html */
 

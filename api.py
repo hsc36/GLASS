@@ -2,11 +2,15 @@
 import sys
 import json
 import ast
+from sys import argv
 import dbfunctions as dbf
-from flask import Flask, request, Response, render_template
+from flask import Flask, request, Response, render_template, url_for
 
 ###--- Setup ---###
-# Read in Configurations
+# Check if in Debug Mode
+debug = True if argv[-1] == 'debug' else False
+
+# Set Pages
 login_page = 'login.html'
 swipe_id_page = 'swipe_id.html'
 access_denied_page = 'access_denied.html'
@@ -44,4 +48,7 @@ def id_func():
 
 # Run the API
 if __name__ == "__main__":
-	api.run(debug=True)
+	if debug:
+		api.run(debug=True)
+	else:
+		api.run(host='0.0.0.0', port=80, debug=False)

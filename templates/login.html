@@ -1,14 +1,15 @@
 <html>
+
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="scripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<script type="text/javascript" src="{{ url_for('static', filename='scripts.js') }}"></script>
 </head>
 
 <body>
 	<div class='loginArea'>
 		<form name="loginForm" action="http://127.0.0.1:5000/auth" method="POST" onsubmit="return submitCredentials()">
 			<h1 class="title">Secure Login</h1>
-			<div class="loginContent">
+			<div class="areaContent">
 				<p>Username:
 					<input type="text" id="user" name="user" />
 				</p>

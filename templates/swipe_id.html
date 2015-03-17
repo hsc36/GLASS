@@ -1,17 +1,22 @@
 <html>
+
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<script type="text/javascript" src="{{ url_for('static', filename='scripts.js') }}"></script>
 </head>
 
 <body>
 	<div class="swipeIdArea">
 		<h1 class="title">ID Verification Procedure</h1>
-		<ol>
-			<li>Wait for the LED by the card reader to light up</li>
-			<li>Swipe your ID tag</li>
-			<li>Wait for the LED to start blinking at regular intervals</li>
-			<li>Click the 'Obtain Access' button</li>
-		</ol>
+		<div class="areaContent">
+			<ol>
+				<li>Wait for the LED by the card reader to light up</li>
+				<li>Swipe your ID tag</li>
+				<li>Wait for the LED to start blinking at regular intervals</li>
+				<li>Click the 'Obtain Access' button</li>
+			</ol>
+			<input type="submit" id="accessButton" value="Obtain Access" class="accessButton"onclick="return getValidation()" />
+		</div>
 	</div>
 </body>
 
