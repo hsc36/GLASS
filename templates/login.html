@@ -1,0 +1,48 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div class='loginArea'>
+		<form name="loginForm" action="http://127.0.0.1:5000/auth" method="POST" onsubmit="return submitCredentials()">
+			<h1 class="title">Secure Login</h1>
+			<div class="loginContent">
+				<p>Username:
+					<input type="text" id="user" name="user" />
+				</p>
+				<p>Password:
+					<input type="password" id="pass" name="pass" />
+				</p>
+				<input type="submit" id="submitButton" value="Submit" class="submitButton"/>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+		function submitCredentials() {
+			// Get User Data
+			var user = document.forms["loginForm"]["user"].value;
+			var pass = document.forms["loginForm"]["pass"].value;
+			var alertmsg = "";
+			var sendalert = false;
+			// Check User Data
+			if (user.length < 1) {
+				alertmsg += "No Username Entered\n"
+				sendalert = true;
+			}
+			if (pass.length < 1) {
+				alertmsg += "No Password Entered\n"
+				sendalert = true;
+			}
+			// Respond to User Data
+			if (sendalert) { // Inform the User of a Problem with the Entered Data
+				alert(alertmsg);
+				return false;
+			} else {
+				return true;
+			}
+		}
+	</script>
+</body>
+
+</html>

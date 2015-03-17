@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+	font-family: arial, helvetica;
+	font-size: 14;
+	text-align: center;
+	background-color: #969696;
+}
+
+h1 {
+	color: #000000;
+	font-size: 24;
+}
+
+h2 {
+	color: #101010;
+	font-size: 20;
+}
+
+p {
+	color: #1f1f1f;
+	font-size: 16;
+}
+
+ol {
+	text-align: left;
+}
+
+.title {
+	font-variant: small-caps;;
+	text-align: center;
+	border-bottom: 1px solid #000000;
+	background-color: #808080;
+	
+	margin: 0 auto;
+}
+
+/* Login Page: login.html */
+.loginArea {
+	border: 1px solid #000000;
+	margin: 0 auto;
+	display: table;
+	background-color: #B0B0B0;
+
+	/* Position the Login Area in the Relative Middle of the Page - www.zerosixthree.se/vertical-alighn-anything-with-just-3-lines-of-css/ */
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.loginContent {
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.submitButton {
+	text-transform: uppercase;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+input[type=text] {
+	width: 150px;
+	display: block;
+	float: right;
+}
+
+input[type=password] {
+	width: 150px;
+	display: block;
+	float: right;
+}
+
+/* Access Granted Page: access.html */
+.swipeIdArea {
+	border: 1px solid #000000;
+	margin: 0 auto;
+	display: table;
+	background-color: #B0B0B0;
+
+	/* Position the Login Area in the Relative Middle of the Page - www.zerosixthree.se/vertical-alighn-anything-with-just-3-lines-of-css/ */
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/* Access Denied Page: access_denied.html */
+
+/* Error Page: error.html */
+
+/* Swipe ID Page: swipe_id.html */
