@@ -47,7 +47,8 @@ def id_func():
 		verified = request.data
 		return render_template(access_page) if verified else render_template(access_denied_page)
 	elif request.method == 'POST':
-		verified = dbf.verify_id_locat(request.form['rfid'], request.form['gps'])
+		gps_data = json.dumps(ast.literal_eval(request.data))
+		verified = dbf.verify_id_locat('', gps_data)	#@TODO: Pass ACTUAL ID
 		return render_template(swipe_id_page) if verified else render_template(access_denied_page)
 	else:
 		return render_template(error_page)
