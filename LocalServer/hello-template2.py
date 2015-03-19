@@ -1,13 +1,19 @@
 from flask import Flask, render_template
 import datetime
-app = Flask(__name__)
+import getValidation as gv
+import requests
 
+
+app = Flask(__name__)
+global json_data
 
 @app.route("/")
 def hello():
-   now = datetime.datetime.now()
-   timeString = now.strftime("%Y-%m-%d %H:%M")
-   templateData = {
+	json_data = gv.get_validation_data(gv.serial_setup())
+	now = datetime.datetime.now()
+	req = requests.post("192.168.2.2/id", data=json_data)
+	timeString = now.strftime("%Y-%m-%d %H:%M")
+	templateData = {
       'title' : 'HELLO!',
       'time': timeString
       }

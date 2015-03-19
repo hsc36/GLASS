@@ -4,7 +4,8 @@ import json
 def setup_serial(com='com3'):
 	ser = serial.Serial(com_port, 9600, timeout=3)
 
-def getValidationData(ser):
+def get_validation_data(ser):
+	
 	# Send Message to Microcontroller, to Get Data
 	ser.write('getMyData')
 	# Read the data from the serial as json
