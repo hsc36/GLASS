@@ -5,10 +5,13 @@ import ast
 from sys import argv
 import dbfunctions as dbf
 from flask import Flask, request, Response, render_template, url_for
+import MySQLdb as mdb
 
 ###--- Setup ---###
 # Check if in Debug Mode
 debug = True if argv[-1] == 'debug' else False
+authorize = False
+userInfo = []
 
 # Set Pages
 login_page = 'login.html'
@@ -20,6 +23,7 @@ error_page = 'error.html'
 # Construct the Flask API
 api = Flask(__name__)
 
+
 # Default - Homepage/Login 
 @api.route("/")
 def default_func():
@@ -29,7 +33,9 @@ def default_func():
 @api.route("/auth", methods=['POST'])
 def auth_func():
 	if request.method == 'POST':
-		verified = dbf.verify_user(request.form['user'], request.form['pass'])
+		username = request.form['user']
+		password = request.form['pass']
+		verified = dbf.verifyUser(username, password)
 		return render_template(swipe_id_page) if verified else render_template(access_denied_page)
 	else:
 		return render_template(error_page)
