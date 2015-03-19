@@ -1,19 +1,8 @@
 import serial
 import json
-from sys import argv
-import datetime
 
-###--- Setup ---###
-# Get User's Arguements
-if len(argv) > 1:
-	com_port = argv[1]
-else:
-	com_port = 'com3'
-print 'Using Data from Serial Port:', com_port
-
-###--- Process ---###
-# Setup
-ser = serial.Serial(com_port, 9600, timeout=3)
+def setup_serial(com='com3'):
+	ser = serial.Serial(com_port, 9600, timeout=3)
 
 def getValidationData(ser):
 	# Send Message to Microcontroller, to Get Data
