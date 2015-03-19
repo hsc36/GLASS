@@ -31,46 +31,7 @@ def getUserInfo(username,password):
 		userInfo.append(access_desc)
 		return userInfo
 
-def verifyUser(username, password):
-	username_check = []
-	password_check = []
-	userInfo = []
-	authorize = False
-	userOn = 0
-	passOn = 0
-	i = 0
-	print "Verifying user %s" % username
-	con = mdb.connect('localhost', 'admin', 'glassadmin', 'glass');
-	with con:
-		cur = con.cursor()
-		cur.execute("SELECT Username, Password FROM LoginInfo")
-		for i in range(cur.rowcount):
-			row = cur.fetchone()
-			username_check.append(row[0])
-			password_check.append(row[1])
-		i = 0
-		while (i < len(username_check)):
-			if(username_check[i] == username):
-				userOn = 1
-			i+=1
-		i = 0
-		while (i < len(password_check)):
-			if(password_check[i] == password):
-				passOn = 1
-			i+=1
-		if (userOn == 1 and passOn == 1):
-			print "Successful Username and Password entry!!"
-			authorize = True
-		elif (userOn == 1 and passOn == 0):
-			print "Incorrect Password"
-			authorize = False
-		elif (userOn == 0 and passOn == 0):
-			print "Incorrect Username and Password"
-			authorize = False
-	return authorize
-
-
-def verify_user(user, pasw):
+def verify_user(username, password):
 	username_check = []
 	password_check = []
 	userInfo = []

@@ -35,7 +35,7 @@ def auth_func():
 	if request.method == 'POST':
 		username = request.form['user']
 		password = request.form['pass']
-		verified = dbf.verifyUser(username, password)
+		verified = dbf.verify_user(username, password)
 		return render_template(swipe_id_page) if verified else render_template(access_denied_page)
 	else:
 		return render_template(error_page)
