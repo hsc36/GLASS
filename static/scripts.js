@@ -35,10 +35,15 @@ function submitCredentials() {
 
 
 // Swipe ID Page: swipe_id.html
-function getValidation() {
-	// Make request to server
-	// if validated
-	//	return true;
-	// else
-	return false;
+function getValidation(id, gps) {
+	var xmlHttp = null;
+	var endPoint = "http://192.168.2.2:80/";
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("POST", endPoint, false);
+    xmlHttp.send({"id":id, "gps":gps});
+    if (xmlHttp.responseText === "true"){
+    	return true;
+    }else{
+    	return false;
+    }
 }
