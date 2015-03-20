@@ -15,7 +15,9 @@
 				<li>Wait for the LED to start blinking at regular intervals</li>
 				<li>Click the 'Obtain Access' button</li>
 			</ol>
-			<input type="submit" id="accessButton" value="Obtain Access" class="accessButton"onclick="return getValidation()" />
+			<form name="loginForm" action="http://192.168.2.2/verify" method="POST">
+				<input type="submit" id="accessButton" value="Obtain Access" class="accessButton" />
+			</form>
 		</div>
 	</div>
 </body>

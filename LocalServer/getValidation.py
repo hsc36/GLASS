@@ -1,15 +1,17 @@
-import serial
 import json
+import serial
 
-def setup_serial(com='com3'):
-	ser = serial.Serial(com_port, 9600, timeout=3)
+
+def setup_serial(com_port = '/dev/ttyACM0'):
+	print 'A'
+#ser = serial.Serial(com_port, 9600, timeout=3)
 
 def get_validation_data(ser):
-	
 	# Send Message to Microcontroller, to Get Data
-	ser.write('getMyData')
+	#ser.write('getMyData')
 	# Read the data from the serial as json
-	msg = ser.readline().strip()
+	#msg = ser.readline().strip()
+	msg = 'zxcvbnmzxcvbnmzxc1231231231W123123123123S'
 	if msg.startswith('GPGGA'):
 		msg = msg.replace('GPPGA', '')
 	# Parse the message into its associted data and store it in a dictionary

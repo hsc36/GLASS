@@ -41,17 +41,25 @@ def auth_func():
 		return render_template(error_page)
 
 # RFID & Location Authentication
-@api.route("/id", methods=['POST'])
+@api.route("/verify", methods=['POST'])
+def ver_func():
+	if request.method == 'POST':
+		return render_template(access_page)
+
+@api.route("/id", methods=['POST', 'GET'])
 def id_func():
 	if request.method == 'GET':
+		print 'in funct'
 		verified = request.data
-		return render_template(access_page) if verified else render_template(access_denied_page)
-	elif request.method == 'POST':
-		gps_data = json.dumps(ast.literal_eval(request.data))
-		verified = dbf.verify_id_locat('', gps_data)	#@TODO: Pass ACTUAL ID
-		return render_template(swipe_id_page) if verified else render_template(access_denied_page)
-	else:
-		return render_template(error_page)
+		return render_template(access_page)# if verified else render_template(access_denied_page)
+	if request.method == 'POST':
+		print 'In post'
+		#gps_data = json.dumps(ast.literal_eval(request.data))
+		#verified = dbf.verify_id_locat('', gps_data)	#@TODO: Pass ACTUAL ID
+		return render_template(access_page) #if verified else render_template(access_denied_page)
+	print 'here in id'
+	print 'befoe error'
+	return render_template(error_page)
 
 # Run the API
 if __name__ == "__main__":
